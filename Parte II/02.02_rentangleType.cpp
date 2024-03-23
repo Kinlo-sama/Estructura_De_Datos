@@ -29,19 +29,6 @@ public:
     boxType(double,double,double);
 };
 
-class claseBase{
-private:
-    int miembro1;
-    float miembro2;
-public:
-    void print()const;
-    claseBase(int,float);
-};
-
-class claseDerivada: public claseBase{
-public:
-    claseDerivada(int,float);
-};
 
 void rectangleType::setDimension(double l,double w){
     length = (l >= 0) ? l : 0;
@@ -121,20 +108,6 @@ boxType::boxType(double l, double w, double h)
         height = 0;
 }
 
-claseBase::claseBase(int m1,float m2){
-    miembro1 = m1;
-    miembro2 = m2;
-}
-
-void claseBase::print()const{
-    cout << miembro1 << " " << miembro2 << endl;
-}
-
-claseDerivada::claseDerivada(int m1,float m2):
-    claseBase(m1,m2)
-    {
-    //Cuerpo para mas asignaciones
-    }
 
 int main(){
     //Caracteristicas constructores

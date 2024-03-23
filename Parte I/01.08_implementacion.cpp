@@ -19,6 +19,8 @@ public:
     void incrementMinutes();
     void incrementHours();
     bool equalTime(const clockType &otherTime)const;
+    clockType operator +(const clockType &);
+    bool operator ==(const clockType &);
 };
 
 void clockType::setTime(int hours, int minutes, int seconds){
@@ -51,7 +53,7 @@ void clockType::printTime()const{
  cout << mins << ":";
  if (secs < 10)
     cout << "0";
- cout << secs;
+ cout << secs << endl;
 }
 
 void clockType::incrementHours(){
@@ -92,7 +94,20 @@ clockType::clockType(int hours, int minutes, int seconds){
 
 int main(){
     clockType time1(1,1,1);
-    clockType time2;
-    time2 = time1;
-    time2.printTime();
+    clockType time2(1,1,1);
+    time1.printTime();
+    time1.incrementSeconds();
+    if(time1.equalTime(time2))
+        cout<<"Ambos tiempos son iguales"<<endl;
+    else
+        cout<<"Time1 y time2 no son iguales"<<endl;
+    int a = 3;
+    int b = 5;
+    cout << a;
+    ++a;
+    if(a == b)
+        cout<<"Ambos numeros son iguales"<<endl;
+    else
+        cout<<"a y b no son iguales"<<endl;
+
 }

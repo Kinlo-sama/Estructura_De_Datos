@@ -5,4 +5,5 @@ int main(){
     personType persona1("Leonardo","Vicente Jimenez");
     partTimeEmployee empleado1 ("Leonardo","Vicente Jimenez",100,8);
     empleado1.print();
+    persona1.print();
 }
