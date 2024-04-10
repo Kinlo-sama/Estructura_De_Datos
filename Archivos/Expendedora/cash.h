@@ -19,5 +19,4 @@ class cashRegister{
          //Constructor con un parámetro.
          //Establece el dinero en caja en una cantidad específica.
          //Poscondición: cashOnHand = cashIn;
-
 };

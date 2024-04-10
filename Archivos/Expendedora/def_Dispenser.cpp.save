@@ -1,27 +1,33 @@
+#include "dispenserType.h"
 int dispenserType::getNoOfItems() const{
- return numberOfItems;
+    return numberOfItems;
 }
 
 int dispenserType::getCost() const{
- return cost;
+    return cost;
 }
 
 void dispenserType::makeSale(){
- numberOfItems--;
+    numberOfItems--;
 }
 
 dispenserType::dispenserType(){
- numberOfItems = 50;
- cost = 50;
+    numberOfItems = 50;
+    cost = 50;
 }
 
 dispenserType::dispenserType(int setNoOfItems, int setCost){
- if (setNoOfItems >= 0)
- numberOfItems = setNoOfItems;
- else
- numberOfItems = 50;
- if (setCost >= 0)
- cost = setCost;
- else
- cost = 50;
+if (setNoOfItems >= 0)
+    numberOfItems = setNoOfItems;
+else
+    numberOfItems = 50;
+if (setCost >= 0)
+    cost = setCost;
+else
+    cost = 50;
+}
+
+
+dispenserType::dispenserType(){
+
 }
