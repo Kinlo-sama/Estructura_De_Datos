@@ -1,0 +1,94 @@
+#include "def_Dispenser.cpp"
+#include "def_cash.cpp"
+#include <iostream>
+using namespace std;
+void showSelection()
+{
+ cout << "*** Bienvenido a Jugos de fruta Shelly ***" << endl;
+ cout << "Para seleccionar un artículo, ingrese " << endl;
+ cout << "1 para jugo de manzana" << endl;
+ cout << "2 para jugo de naranja" << endl;
+ cout << "3 para lassi de mango" << endl;
+ cout << "4 para ponche de frutas" << endl;
+ cout << "9 para salir" << endl;
+}//end showSelection
+
+void sellProduct(dispenserType& product, cashRegister& pCounter)
+{
+ int amount; //variable para retener la cantidad ingresada
+ int amount2; //variable para retener la cantidad extra necesaria
+ if (product.getNoOfItems() > 0) //si el dispensador no está vacío
+ {
+ cout << "Por favor deposite " << product.getCost()
+ << " centavos" << endl;
+ cin >> amount;
+ if (amount < product.getCost())
+ {
+ cout << "Por favor deposite otros "
+ << product.getCost()- amount << " centavos" << endl;
+ cin >> amount2;
+ amount = amount + amount2;
+ }
+ if (amount >= product.getCost())
+ {
+ pCounter.acceptAmount(amount);
+ product.makeSale();
+ cout << "Tome el artículo abajo y buen provecho."
+ << endl;
+ }
+ else
+ cout << "La cantidad es insuficiente. "
+ << "Recoja el dinero depositado." << endl;
+ cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+ << endl << endl;
+ }
+ else
+ cout << "Disculpe, el artículo está agotado." << endl;
+}//end sellProduct
+
+
+int main()
+{
+ cashRegister counter;
+ dispenserType appleJuice(100, 50);
+ dispenserType orangeJuice(100, 65);
+ dispenserType mangoLassi(75, 45);
+ dispenserType fruitPunch(100, 85);
+ int choice; //variable para retener la selección
+ showSelection();
+ cin >> choice;
+ while (choice != 9)
+ {
+ switch (choice)
+ {
+ case 1:
+ sellProduct(appleJuice, counter);
+ break;
+ case 2:
+ sellProduct(orangeJuice, counter);
+ break;
+ case 3:
+ sellProduct(mangoLassi, counter);
+ break;
+ case 4:
+ sellProduct(fruitPunch, counter);
+ break;
+ default:
+ cout << "Selección no válida." << endl;
+ }//end switch
+ showSelection();
+ cin >> choice;
+ }//end while
+
+
+ frutas mango;
+ mango.print();
+ cout << mango;
+
+ return 0;
+
+
+
+ }//end main
+
+
